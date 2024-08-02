@@ -5,6 +5,7 @@ import items from "./routes/items.js";
 import logger from "./middleware/logger.js";
 import errorHandler from "./middleware/error.js";
 import notFound from "./middleware/notFound.js";
+import "dotenv/config";
 
 const app = express();
 // const env = dotenv.config().parsed;
