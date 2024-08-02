@@ -8,12 +8,12 @@ import errorHandler from "./middleware/error.js";
 import notFound from "./middleware/notFound.js";
 
 const app = express();
-const env = dotenv.config();
+const env = dotenv.config().parsed;
 const port = env.parsed.PORT || 8000;
 
 // Connect to MongoDB
 mongoose.connect(
-  `mongodb+srv://${env.parsed.USER}:${env.parsed.PASSWORD}@cluster0.qp0dovg.mongodb.net/EternalReturn?retryWrites=true&w=majority&appName=Cluster0`
+  `mongodb+srv://${env.USER}:${env.PASSWORD}@cluster0.qp0dovg.mongodb.net/EternalReturn?retryWrites=true&w=majority&appName=Cluster0`
 );
 
 // Cors
