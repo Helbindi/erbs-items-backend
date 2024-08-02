@@ -9,7 +9,7 @@ import notFound from "./middleware/notFound.js";
 
 const app = express();
 const env = dotenv.config().parsed;
-const port = env.parsed.PORT || 8000;
+const port = env.PORT || 8000;
 
 // Connect to MongoDB
 mongoose.connect(
