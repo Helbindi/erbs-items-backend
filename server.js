@@ -18,7 +18,6 @@ mongoose.connect(
 
 // Cors
 const corsOptions = {
-  origin: "http://localhost:5173", // Allow only requests from these domains
   methods: ["GET", "POST", "PUT", "DELETE"], // Only allow certain requests
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
