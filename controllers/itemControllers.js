@@ -29,6 +29,7 @@ export const getItem = async (req, res, next) => {
 
 // Create new item
 export const createItem = async (req, res, next) => {
+  console.log(req);
   const hasName = req.body.name;
 
   if (!hasName) {

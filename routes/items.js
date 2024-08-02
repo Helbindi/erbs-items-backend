@@ -8,32 +8,24 @@ import {
   deleteItem,
 } from "../controllers/itemControllers.js";
 
-const corsPublic = {
-  methods: ["GET"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true,
-};
-
-const corsDev = {
-  origin: ["http://localhost:8080/", "http://localhost:5173/"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true,
+const corsPrivate = {
+  origin: ["http://localhost:5173", "http://localhost:8080"],
 };
 
 const router = express.Router();
 // Get all items
-router.get("/", cors(corsPublic), getAllItems);
+router.get("/", getAllItems);
 
 // Get single item
-router.get("/:id", cors(corsPublic), getItem);
+router.get("/:id", getItem);
 
 // Create new item
-router.post("/", cors(corsDev), createItem);
+router.post("/", cors(corsPrivate), createItem);
 
 // Update a item
-router.put("/:id", cors(corsDev), updateItem);
+router.put("/:id", cors(corsPrivate), updateItem);
 
 // Delete a item
-router.delete("/:id", cors(corsDev), deleteItem);
+router.delete("/:id", cors(corsPrivate), deleteItem);
 
 export default router;

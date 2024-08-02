@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import mongoose from "mongoose";
 import items from "./routes/items.js";
 import logger from "./middleware/logger.js";
@@ -13,6 +14,9 @@ const port = process.env.PORT || 8000;
 mongoose.connect(
   `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.qp0dovg.mongodb.net/EternalReturn?retryWrites=true&w=majority&appName=Cluster0`
 );
+
+// Cors
+app.use(cors());
 
 // Body parser middleware
 app.use(express.json());
