@@ -1,19 +1,18 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-import dotenv from "dotenv";
 import items from "./routes/items.js";
 import logger from "./middleware/logger.js";
 import errorHandler from "./middleware/error.js";
 import notFound from "./middleware/notFound.js";
 
 const app = express();
-const env = dotenv.config().parsed;
-const port = env.PORT || 8000;
+// const env = dotenv.config().parsed;
+const port = process.env.PORT || 8000;
 
 // Connect to MongoDB
 mongoose.connect(
-  `mongodb+srv://${env.USER}:${env.PASSWORD}@cluster0.qp0dovg.mongodb.net/EternalReturn?retryWrites=true&w=majority&appName=Cluster0`
+  `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.qp0dovg.mongodb.net/EternalReturn?retryWrites=true&w=majority&appName=Cluster0`
 );
 
 // Cors
